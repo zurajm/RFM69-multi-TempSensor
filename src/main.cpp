@@ -249,7 +249,7 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
  */
 
 #define USE_BATTERY
-// #define USE_SIGNAL
+#define USE_SIGNAL
 //#define USE_CONFIGURATION
 //#define USE_ANALOG_INPUT
 //#define USE_THERMISTOR
@@ -319,7 +319,7 @@ NodeManager node;
 // built-in sensors
 SensorBattery battery(node);
 //SensorConfiguration configuration(node);
-// SensorSignal signal(node);
+SensorSignal signal(node);
 //PowerManager power(5,6);
 
 // Attached sensors
@@ -394,10 +394,10 @@ void before() {
   node.setSleepMinutes(5);
   // report battery level every 10 minutes
   battery.setReportIntervalMinutes(10);
-  // battery.setMinVoltage(1.8);
-  // battery.setMaxVoltage(3.4);
-  // battery.setBatteryInternalVcc(false);
-  // battery.setBatteryPin(A5);
+  battery.setMinVoltage(1.8);
+  battery.setMaxVoltage(3.4);
+  battery.setBatteryInternalVcc(false);
+  battery.setBatteryPin(A5);
   // set an offset to -1 to a thermistor sensor
   //thermistor.setOffset(-1);
   // change the id of a the first child of a sht21 sensor
