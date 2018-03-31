@@ -130,7 +130,7 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
 #define SKETCH_NAME "NM-RFM69-Temp"
 #define SKETCH_VERSION "1.0"
 #define MY_DEBUG
-//#define MY_NODE_ID 99
+#define MY_NODE_ID 99
 
 // NRF24 radio settings
 //#define MY_RADIO_NRF24
@@ -447,3 +447,4 @@ void receiveTime(unsigned long ts) {
   node.receiveTime(ts);
 }
 #endif
+#include "NodeManagerLibrary.ino"
