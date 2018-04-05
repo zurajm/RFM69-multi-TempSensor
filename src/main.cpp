@@ -248,8 +248,8 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
  * NodeManager modules for supported sensors
  */
 
-// #define USE_BATTERY
-// #define USE_SIGNAL
+#define USE_BATTERY
+#define USE_SIGNAL
 //#define USE_CONFIGURATION
 //#define USE_ANALOG_INPUT
 //#define USE_THERMISTOR
@@ -391,11 +391,11 @@ void before() {
   // set the node to sleep in 30 seconds cycles
   //node.setSleepSeconds(30);
   // set the node to sleep in 5 minutes cycles
-  // node.setSleepMinutes(5);
+  node.setSleepMinutes(5);
   // report battery level every 10 minutes
-  // battery.setReportIntervalMinutes(10);
-  // battery.setMinVoltage(1.8);
-  // battery.setMaxVoltage(3.4);
+  battery.setReportIntervalMinutes(10);
+  battery.setMinVoltage(1.8);
+  battery.setMaxVoltage(3.4);
   // battery.setBatteryInternalVcc(false);
   // battery.setBatteryPin(A5);
   // set an offset to -1 to a thermistor sensor
