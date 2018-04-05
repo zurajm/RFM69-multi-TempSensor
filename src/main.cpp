@@ -145,7 +145,7 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
 #define MY_RFM69_FREQUENCY RFM69_433MHZ
 #define MY_IS_RFM69HW
 #define MY_RFM69_NEW_DRIVER
-#define MY_RFM69_ENABLE_ENCRYPTION
+// #define MY_RFM69_ENABLE_ENCRYPTION
 //#define MY_RFM69_NETWORKID 100
 //#define MY_DEBUG_VERBOSE_RFM69
 //#define MY_RF69_IRQ_PIN D1
@@ -191,11 +191,11 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
 //#define MY_SIGNAL_REPORT_ENABLED
 
 // Optimizations when running on 2032 Coin Cell. Also set node.setSleepBetweenSend(500) and run the board at 1Mhz
-// #define MY_TRANSPORT_UPLINK_CHECK_DISABLED
-// #define MY_TRANSPORT_WAIT_READY_MS  5000
-// #define MY_SLEEP_TRANSPORT_RECONNECT_TIMEOUT_MS 2000
-// #define MY_PARENT_NODE_ID 0
-// #define MY_PARENT_NODE_IS_STATIC
+#define MY_TRANSPORT_UPLINK_CHECK_DISABLED
+#define MY_TRANSPORT_WAIT_READY_MS  5000
+#define MY_SLEEP_TRANSPORT_RECONNECT_TIMEOUT_MS 2000
+#define MY_PARENT_NODE_ID 0
+#define MY_PARENT_NODE_IS_STATIC
 
 /**********************************
  * MySensors gateway configuration
@@ -248,8 +248,8 @@ FEATURE_HOOKING             | OFF     | allow custom code to be hooked in the ou
  * NodeManager modules for supported sensors
  */
 
-#define USE_BATTERY
-#define USE_SIGNAL
+// #define USE_BATTERY
+// #define USE_SIGNAL
 //#define USE_CONFIGURATION
 //#define USE_ANALOG_INPUT
 //#define USE_THERMISTOR
@@ -320,7 +320,7 @@ NodeManager node;
 SensorBattery battery(node);
 //SensorConfiguration configuration(node);
 SensorSignal signal(node);
-//PowerManager power(5,6);
+// PowerManager power(-1,A0);
 
 // Attached sensors
 //SensorAnalogInput analog(node,A0);
@@ -342,7 +342,7 @@ SensorSignal signal(node);
 //SensorInterrupt interrupt(node,3);
 //SensorDoor door(node,3);
 //SensorMotion motion(node,3);
-SensorDs18b20 ds18b20(node,A0);
+SensorDs18b20 ds18b20(node,15);
 //SensorBH1750 bh1750(node);
 //SensorMLX90614 mlx90614(node);
 //SensorBME280 bme280(node);
@@ -391,13 +391,13 @@ void before() {
   // set the node to sleep in 30 seconds cycles
   //node.setSleepSeconds(30);
   // set the node to sleep in 5 minutes cycles
-  node.setSleepMinutes(5);
+  // node.setSleepMinutes(5);
   // report battery level every 10 minutes
-  battery.setReportIntervalMinutes(10);
-  battery.setMinVoltage(1.8);
-  battery.setMaxVoltage(3.4);
-  battery.setBatteryInternalVcc(false);
-  battery.setBatteryPin(A5);
+  // battery.setReportIntervalMinutes(10);
+  // battery.setMinVoltage(1.8);
+  // battery.setMaxVoltage(3.4);
+  // battery.setBatteryInternalVcc(false);
+  // battery.setBatteryPin(A5);
   // set an offset to -1 to a thermistor sensor
   //thermistor.setOffset(-1);
   // change the id of a the first child of a sht21 sensor
