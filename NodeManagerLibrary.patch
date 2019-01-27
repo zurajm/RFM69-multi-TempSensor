@@ -1,0 +1,16 @@
+--- NodeManagerLibrary.ino	2019-01-27 07:46:31.318540010 +0100
++++ NodeManagerLibrary.ino.new	2019-01-27 07:41:21.260054676 +0100
+@@ -827,9 +827,11 @@
+   // when measuring the battery from a pin, analog reference must be internal
+   if (! _battery_internal_vcc && _battery_pin > -1)
+ #ifdef CHIP_MEGA
+-    analogReference(INTERNAL1V1);
++    // analogReference(INTERNAL1V1);
++    analogReference(DEFAULT);
+ #else
+-    analogReference(INTERNAL);
++    // analogReference(INTERNAL);
++    analogReference(DEFAULT);
+ #endif
+ #endif
+ }
